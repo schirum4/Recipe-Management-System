@@ -5,7 +5,7 @@ from bson.objectid import ObjectId
 app = Flask(__name__)
 
 # MongoDB Atlas connection
-app.config["MONGO_URI"] = "mongodb+srv://sunilkumarpog:Mr19QRSYURMtmM5k@sunil.yzql3.mongodb.net/recipe_manager?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = "Add Your MangoDB token here" #Please do not ignore this
 mongo = PyMongo(app)
 
 @app.route('/')
