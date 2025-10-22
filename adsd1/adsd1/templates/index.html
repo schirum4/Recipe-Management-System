@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">My Recipes</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Cuisine Type</th>
+                <th>Ingredients</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+            <tr>
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.cuisine_type }}</td>
+                <td>{{ recipe.ingredients }}</td>
+                <td>
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('add_recipe') }}" class="btn btn-primary mt-3">Add New Recipe</a>
+</div>
+{% endblock %}

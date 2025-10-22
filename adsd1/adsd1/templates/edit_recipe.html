@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-4">Edit Recipe</h1>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Recipe Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ recipe.name }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="cuisine_type" class="form-label">Cuisine Type</label>
+            <input type="text" class="form-control" id="cuisine_type" name="cuisine_type" value="{{ recipe.cuisine_type }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="ingredients" class="form-label">Ingredients</label>
+            <textarea class="form-control" id="ingredients" name="ingredients" rows="3" required>{{ recipe.ingredients }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-warning">Update Recipe</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
